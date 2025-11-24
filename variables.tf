@@ -55,7 +55,6 @@ variable "bedrock_embed_model_id" {
 variable "bedrock_text_model_id" {
     description = "Bedrock model ID for text generation"
     type        = string
-    default     = "arn:aws:bedrock:us-east-1:533267178572:inference-profile/us.meta.llama3-3-70b-instruct-v1:0"
 }
 
 variable "cross_region_profile_name" {
