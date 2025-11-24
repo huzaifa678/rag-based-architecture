@@ -11,8 +11,8 @@ variables:
   TF_IN_AUTOMATION: "true"
 
 before_script:
-  - apk add --no-cache python3 py3-pip
-  - pip install awscli
+  - apk update
+  - apk add --no-cache aws-cli python3
 
   - aws sts get-caller-identity
 
@@ -28,8 +28,7 @@ plan:
   stage: plan
   script:
     - terraform init 
-    - terraform plan -out=tfplan \
-        -var="bedrock_text_model_id=$AWS_BEDROCK_TEXT_MODEL_ID" 
+    - terraform plan -out=tfplan -var="bedrock_text_model_id=$AWS_BEDROCK_TEXT_MODEL_ID" 
   artifacts:
     paths:
       - tfplan
